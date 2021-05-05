@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1><%= title %></h1>
+  </header>
+  <div role="main">
+    <ol>
+      <% if (err!=null) { for (let i in err.errors) {%>
+        <li><%= err.errors[i].message %></li>
+      <% }} %>
+    </ol>
+    <form method="post" action="/users/add">
+      <div>
+        <label for="name">NAME</label>
+        <input type="text" name="name" id="name" value="<%= form.name %>">
+        <ul>
+          <% if (err!=null) { for (let i in err.get("name")) { %>
+          <li><%= err.get("name")[i].message %></li>
+          <% }} %>
+        </ul>
+      </div>
+      <div>
+        <label for="pass">PASSWORD</label>
+        <input type="password" name="pass" id="pass" value="<%= form.pass %>">
+        <ul>
+          <% if (err != null) { for (let i in err.get("pass")) { %>
+          <li><%= err.get("pass")[i].message %></li>
+          <% }} %>
+        </ul>
+      </div>
+      <div>
+        <label for="mail">MAIL</label>
+        <input type="text" name="mail" id="mail" value="<%= form.mail %>">
+        <ul>
+          <% if (err!=null) { for (let i in err.get("mail")) { %>
+          <li><%= err.get("mail")[i].message %></li>
+          <% }} %>
+        </ul>
+      </div>
+      <div>
+        <label for="age">AGE</label>
+        <input type="number" name="age" id="age" value="<%= form.age %>">
+        <ul>
+          <% if (err!=null) { for (let i in err.get("age")) { %>
+          <li><%= err.get("age")[i].message %></li>
+          <% }} %>
+        </ul>
+      </div>
+
+      <input type="submit" value="作成">
+    </form>
+  </div>
+</body>
+</html>

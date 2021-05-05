@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1><%= title %></h1>
+  </header>
+  <div role="main">
+    <form method="post" action="/users/edit">
+      <input type="hidden" name="id" value="<%= form.id %>">
+      <div>
+        <label for="name">NAME</label>
+        <input type="text" name="name" id="name" value="<%= form.name %>">
+      </div>
+      <div>
+        <label for="pass">PASSWORD</label>
+        <input type="password" name="pass" id="pass" value="<%= form.pass %>">
+      </div>
+      <div>
+        <label for="mail">MAIL</label>
+        <input type="text" name="mail" id="mail" value="<%= form.mail %>">
+      </div>
+      <div>
+        <label for="age">AGE</label>
+        <input type="number" name="age" id="age" value="<%= form.age %>">
+      </div>
+      <input type="submit" value="更新">
+    </form>
+  </div>
+</body>
+</html>
